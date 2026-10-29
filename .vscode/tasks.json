@@ -1,0 +1,108 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "SmartPark: 0. Start All Services (All-in-One)",
+      "type": "shell",
+      "command": "npm run dev:all",
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "SmartPark: Check System Health",
+      "type": "shell",
+      "command": "node scripts/health-check.js",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "SmartPark: Run All Tests",
+      "type": "shell",
+      "command": "bash scripts/run-all-tests.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "SmartPark: 1. Start MongoDB",
+      "type": "shell",
+      "command": "bash scripts/start-mongo.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "SmartPark: 2. Seed Database",
+      "type": "shell",
+      "command": "npm run seed:backend",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "SmartPark: 3. Start ML Service (Port 8000)",
+      "type": "shell",
+      "command": "bash scripts/start-ml.sh",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "SmartPark: 4. Start Backend (Port 5001)",
+      "type": "shell",
+      "command": "npm run dev:backend",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "SmartPark: 5. Start Admin Dashboard (Port 5173)",
+      "type": "shell",
+      "command": "npm run dev:admin",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "SmartPark: 6. Start Mobile App (Port 8081)",
+      "type": "shell",
+      "command": "mkdir -p .expo-cache && cd apps/mobile && EXPO_NO_TELEMETRY=1 EXPO_CACHE_DIR=\"$PWD/../../.expo-cache\" npx expo start -p 8081 --offline",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

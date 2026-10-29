@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "SmartPark AI",
+    "slug": "smartpark-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "smartpark",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#071D42"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.smartpark.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "SmartPark uses your location to calculate distance to garages, sort recommendations, and open turn-by-turn navigation to facility entrances."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#071D42"
+      },
+      "package": "ai.smartpark.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ]
+  }
+}

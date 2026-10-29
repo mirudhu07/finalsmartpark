@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Backend API (Port 5001)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/services/backend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug ML Service (FastAPI)",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"],
+      "cwd": "${workspaceFolder}/services/ml-service",
+      "python": "${workspaceFolder}/services/ml-service/venv/bin/python",
+      "console": "integratedTerminal"
+    }
+  ]
+}

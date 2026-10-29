@@ -1,0 +1,34 @@
+{
+  "name": "smartpark-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SmartPark AI — Complete, Production-Minded Smart Parking Platform",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "services/backend"
+  ],
+  "scripts": {
+    "start": "npm run dev:all",
+    "dev:all": "bash scripts/start-mongo.sh && concurrently -n \"ML,API,ADMIN,METRO\" -c \"magenta,blue,cyan,green\" \"npm run start:ml\" \"npm run dev:backend\" \"npm run dev:admin\" \"npm run dev:mobile:metro\"",
+    "bootstrap": "bash scripts/bootstrap.sh",
+    "start:mongo": "bash scripts/start-mongo.sh",
+    "stop:mongo": "bash scripts/stop-mongo.sh",
+    "start:ml": "bash scripts/start-ml.sh",
+    "train:ml": "cd services/ml-service && ./venv/bin/python train.py",
+    "dev:backend": "cd services/backend && npm run dev",
+    "seed:backend": "cd services/backend && npm run seed",
+    "dev:admin": "cd apps/admin-dashboard && npm run dev",
+    "dev:mobile": "cd apps/mobile && npx expo start --ios",
+    "dev:mobile:metro": "cd apps/mobile && npx expo start",
+    "test": "bash scripts/run-all-tests.sh",
+    "health": "node scripts/health-check.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "json5": "^2.2.3",
+    "query-string": "7.1.3"
+  }
+}
